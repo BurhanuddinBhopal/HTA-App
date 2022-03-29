@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'home_page.dart';
-import 'login_page.dart';
+import 'package:hta/pages/AddCustomer_page.dart';
+import 'package:hta/pages/home_page.dart';
+import 'package:hta/pages/login_page.dart';
+import 'package:hta/utils/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(primarySwatch: Colors.red),
       routes: {
-        "/": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginPage()
+        "/": (context) => HomePage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.AddCustomerRoute: (context) => AddCustomerPage(),
       },
     );
   }
