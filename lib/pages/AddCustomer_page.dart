@@ -1,8 +1,14 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors
-
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:contact_picker/contact_picker.dart';
+
+import '../utils/routes.dart';
 
 class AddCustomerPage extends StatelessWidget {
+  final ContactPicker _contactPicker = ContactPicker();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -45,7 +51,10 @@ class AddCustomerPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(top: 16.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  var contact = await _contactPicker.selectContact();
+                  setState(() {});
+                },
                 child: Text("Select from PhoneBook"),
                 style: TextButton.styleFrom(
                   backgroundColor: Color.fromRGBO(62, 13, 59, 1),
@@ -163,3 +172,5 @@ class AddCustomerPage extends StatelessWidget {
     );
   }
 }
+
+void setState(Null Function() param0) {}
